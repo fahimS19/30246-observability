@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo-namespace
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummy-logger
+  namespace: demo-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dummy-logger
+  template:
+    metadata:
+      labels:
+        app: dummy-logger
+    spec:
+      containers:
+      - name: logger
+        image: alpine:latest
+        command: ["/bin/sh", "-c"]
+        args:
+        - |
+          while true; do 
+            echo "$(date -u) INFO: Worker processed batch successfully"; 
+            sleep 4; 
+            if [ $(($RANDOM % 5)) -eq 0 ]; then 
+              echo "$(date -u) ERROR: Timeout connecting to backend" >&2; 
+            fi; 
+          done
