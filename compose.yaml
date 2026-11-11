@@ -40,10 +40,15 @@ services:
     container_name: grafana
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SMTP_ENABLED=true
+      - GF_SMTP_HOST=smtp.gmail.com:587
+      - GF_SMTP_USER=hoshigakekisame2019@gmail.com
+      - GF_SMTP_PASSWORD=xshcjhnpxtjatgys
+      - GF_SMTP_FROM_ADDRESS=your_email@gmail.com
+      - GF_SMTP_FROM_NAME=Grafana
     volumes:
       - grafana_data:/var/lib/grafana
     ports:
-      # Mapped to 8085 to avoid the Jenkins conflict on 8080
       - "8085:3000"
     restart: unless-stopped
     networks:
