@@ -118,27 +118,21 @@ To verify that Kubernetes logs are successfully reaching Loki:
 
 ## 📸 Assessment Evidence
 
-*(Evaluator Note: The following screenshots validate the practical outcomes required by the assessment checklist.)*
 
 ### 1. Environment & Tools
 ![Docker and Cluster Status](./evidence/compose-and-cluster.png)
-> **Candidate Action:** Take a screenshot of your terminal showing the output of `docker compose ps` and `kubectl get pods -A`. Save it as `compose-and-cluster.png` in the `evidence` folder.
 
 ### 2. Prometheus Target Health
 ![Prometheus Targets UP](./evidence/prometheus-targets.png)
-> **Candidate Action:** Take a screenshot of your browser at `http://localhost:8081/targets` showing both `ubuntu_host` and `order_app` in the green **UP** state. Save it as `prometheus-targets.png`.
 
 ### 3. Grafana Metrics Dashboard
 ![Grafana 8-Panel Dashboard](./evidence/grafana-metrics.png)
-> **Candidate Action:** Take a full-screen screenshot of your finished Grafana dashboard showing all 8 metric panels with actual data flowing in. Save it as `grafana-metrics.png`.
 
 ### 4. Kubernetes Log Query
 ![Loki Logs in Grafana](./evidence/kubernetes-logs.png)
-> **Candidate Action:** Take a screenshot of the Grafana **Explore** tab showing the Loki logs filtering `{namespace="demo-namespace"}`. Save it as `kubernetes-logs.png`.
 
 ### 5. Email Alert Delivery
 ![Received Email Alert](./evidence/email-alert.png)
-> **Candidate Action:** Take a screenshot of the actual email you received in your Gmail inbox from Grafana. Redact/blur any personal info if you want, but show the subject line and timestamp. Save it as `email-alert.png`.
 
 ---
 
